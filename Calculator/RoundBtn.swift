@@ -18,10 +18,4 @@ class RoundBtn: UIButton {
       }
     }
   }
-
-//  override func prepareForInterfaceBuilder() {
-//    if roundBtn {
-//      layer.cornerRadius = frame.height / 2
-//    }
-//  }
 }
