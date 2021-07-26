@@ -68,10 +68,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBm-fa-cfM" customClass="RoundBtn" customModule="Calculator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="60"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="8Ww-vm-Y5c"/>
+                                                    <constraint firstAttribute="width" constant="120" id="8Ww-vm-Y5c"/>
                                                     <constraint firstAttribute="height" constant="60" id="I5l-4y-ShV"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -85,26 +85,8 @@
                                                     <action selector="allClearPressed:" destination="7NN-xW-fBd" eventType="touchUpInside" id="QRN-zI-Ahs"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPI-8w-r4W" customClass="RoundBtn" customModule="Calculator" customModuleProvider="target">
-                                                <rect key="frame" x="81" y="0.0" width="60" height="60"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="671-D4-zwN"/>
-                                                    <constraint firstAttribute="height" constant="60" id="hBK-bc-g7T"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="+/−">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundBtn" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="minusSignPressed:" destination="7NN-xW-fBd" eventType="touchUpInside" id="oVX-jT-rgy"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTX-gg-qVb" customClass="RoundBtn" customModule="Calculator" customModuleProvider="target">
-                                                <rect key="frame" x="162" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="151.33333333333334" y="0.0" width="60" height="60"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="eiA-7g-rms"/>
@@ -392,7 +374,7 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundBtn" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="numberPressed:" destination="7NN-xW-fBd" eventType="touchUpInside" id="fOV-Eg-rA6"/>
+                                                    <action selector="zeroPressed:" destination="7NN-xW-fBd" eventType="touchUpInside" id="gH4-kV-0vr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbR-7T-zMb" customClass="RoundBtn" customModule="Calculator" customModuleProvider="target">
@@ -438,8 +420,11 @@
                                     <constraint firstAttribute="height" constant="400" id="4X0-e2-1ik"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izv-TS-xTI">
-                                <rect key="frame" x="51.333333333333343" y="312.33333333333331" width="287.33333333333326" height="65.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izv-TS-xTI">
+                                <rect key="frame" x="32" y="312.33333333333331" width="326" height="65.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65.670000000000002" id="JAJ-gw-5DZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -448,14 +433,16 @@
                         <viewLayoutGuide key="safeArea" id="cBv-Pd-vHJ"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Izv-TS-xTI" firstAttribute="centerX" secondItem="hr8-uq-tRI" secondAttribute="centerX" id="A8j-Tw-Z8z"/>
+                            <constraint firstItem="cBv-Pd-vHJ" firstAttribute="trailing" secondItem="Izv-TS-xTI" secondAttribute="trailing" constant="32" id="1gE-6Z-ARy"/>
                             <constraint firstItem="hr8-uq-tRI" firstAttribute="centerX" secondItem="Tar-e3-ijE" secondAttribute="centerX" id="NAm-Tc-1cR"/>
                             <constraint firstItem="hr8-uq-tRI" firstAttribute="top" secondItem="Izv-TS-xTI" secondAttribute="bottom" constant="16" id="NRw-iL-3XN"/>
+                            <constraint firstItem="Izv-TS-xTI" firstAttribute="leading" secondItem="cBv-Pd-vHJ" secondAttribute="leading" constant="32" id="R3F-JY-vR5"/>
                             <constraint firstItem="cBv-Pd-vHJ" firstAttribute="bottom" secondItem="hr8-uq-tRI" secondAttribute="bottom" constant="16" id="ear-GY-aKZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ygf-xf-0H3"/>
                     <connections>
+                        <outlet property="dotBtn" destination="ZbR-7T-zMb" id="Ipa-Ot-fz4"/>
                         <outlet property="outputLabel" destination="Izv-TS-xTI" id="SpD-34-UvK"/>
                     </connections>
                 </viewController>
@@ -589,9 +576,6 @@
         </designable>
         <designable name="icw-co-G08">
             <size key="intrinsicContentSize" width="30" height="48"/>
-        </designable>
-        <designable name="pPI-8w-r4W">
-            <size key="intrinsicContentSize" width="30" height="36"/>
         </designable>
         <designable name="s8A-Y9-NsV">
             <size key="intrinsicContentSize" width="30" height="48"/>
