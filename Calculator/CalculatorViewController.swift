@@ -7,18 +7,18 @@
 
 import UIKit
 
-enum Operation: String {
-  case Add = "="
-  case Subtract = "-"
-  case Divide = "/"
-  case Mutiply = "*"
-  case Null = "Null"
+enum Operation {
+  case Add
+  case Subtract
+  case Divide
+  case Mutiply
+  case Null
 }
 
 class CalculatorViewController: UIViewController {
 
   // MARK: - Properties
-  var inputNumber = "" // Number display on the screen
+  var inputNumber = ""
   var leftValue = ""
   var rightValue = ""
   var result = ""
@@ -42,6 +42,7 @@ class CalculatorViewController: UIViewController {
     if inputNumber == "0" {
       inputNumber = "\(sender.tag)"
       outputLabel.text = inputNumber
+
     } else {
       if inputNumber.count <= 8 {
         inputNumber += "\(sender.tag)"
@@ -51,8 +52,10 @@ class CalculatorViewController: UIViewController {
   }
 
   @IBAction func dotPressed(_ sender: RoundBtn) {
+
     if inputNumber.contains(".") {
       print("Can't add any dot!")
+
     } else if inputNumber.count <= 7 {
       inputNumber += "."
       outputLabel.text = inputNumber
@@ -80,60 +83,7 @@ class CalculatorViewController: UIViewController {
   }
 
   @IBAction func factorialPressed(_ sender: RoundBtn) {
-    // When inputNumber exist and it is Int, we can calculate factorial
-    if inputNumber != "" {
-
-      if inputNumber.isInt {
-
-        // TODO: - 檢查負數也要return error
-
-        let factorialResult = getFactorial(num: Int(inputNumber)!)
-
-        if Int(inputNumber)! < 21 {
-
-          inputNumber = String(Int(factorialResult))
-          leftValue = inputNumber      // And update for the next calculation
-          outputLabel.text = inputNumber
-          outputLabel.adjustsFontSizeToFitWidth = true
-
-        } else {
-          inputNumber = String(factorialResult)
-          leftValue = inputNumber
-          outputLabel.text = inputNumber
-          outputLabel.adjustsFontSizeToFitWidth = true
-        }
-
-      } else {
-        inputNumber = ""
-        outputLabel.text = "Error"
-      }
-
-    // When no inputNumber means only result exist, and if the result is Int, we can calculate factorial
-    } else {  // runningNumber == ""
-
-      if result.isInt {
-
-        let factorialResult = getFactorial(num: Int(result)!)
-
-        if Int(result)! < 21 {
-
-          result = String(Int(factorialResult))
-          leftValue = result
-          outputLabel.text = result
-          outputLabel.adjustsFontSizeToFitWidth = true
-
-        } else {
-          result = String(factorialResult)
-          leftValue = result
-          outputLabel.text = result
-          outputLabel.adjustsFontSizeToFitWidth = true
-        }
-
-      } else {
-        result = ""
-        outputLabel.text = "Error"
-      }
-    }
+    operateFactorial()
   }
 
   @IBAction func allClearPressed(_ sender: RoundBtn) {
@@ -144,6 +94,7 @@ class CalculatorViewController: UIViewController {
     outputLabel.text = ""
   }
 
+  // MARK: View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -173,12 +124,11 @@ class CalculatorViewController: UIViewController {
           print("Nothing")
         }
 
-        // Convert Result from Double to Int
-        if Double(result)!.truncatingRemainder(dividingBy: 1) == 0 {
-          result = "\(Int(Double(result)!))"
-        }
+        let doubleResult = result.toDouble
+        result = doubleResult.convertToStr(result: doubleResult)
 
         leftValue = result
+        
         outputLabel.text = result
         outputLabel.adjustsFontSizeToFitWidth = true
       }
@@ -197,11 +147,64 @@ class CalculatorViewController: UIViewController {
     }
     return Double(num) * getFactorial(num: num - 1)
   }
-}
 
-extension String {
-  var isInt: Bool {
-    return Int(self) != nil
+  func operateFactorial() {
+    // When inputNumber exist and it is Int(>0), we can calculate factorial
+    if inputNumber != "" {
+
+      if inputNumber.isInt {
+
+        let factorialResult = getFactorial(num: inputNumber.toInt)
+
+        if inputNumber.toInt < 21 {
+          inputNumber = String(factorialResult.toInt)
+          leftValue = inputNumber       // Update for the next calculation
+          outputLabel.text = inputNumber
+          outputLabel.adjustsFontSizeToFitWidth = true
+
+        } else { // 21! > 64 bit integer max value so use double
+          inputNumber = String(factorialResult)
+          leftValue = inputNumber
+          outputLabel.text = inputNumber
+          outputLabel.adjustsFontSizeToFitWidth = true
+        }
+
+      } else {  // non-Int can't calculate factorial
+        inputNumber = ""
+        outputLabel.text = "Error"
+      }
+
+    } else {  // inputNumber == ""
+      // When no inputNumber means only result exist, and if the result is Int(>0), we can calculate factorial
+      if result.isInt {
+
+        if result.toInt < 0 {
+          inputNumber = ""
+          outputLabel.text = "Error"
+
+        } else {
+          let factorialResult = getFactorial(num: result.toInt)
+
+          if result.toInt < 21 {
+            result = String(Int(factorialResult))
+            leftValue = result
+            outputLabel.text = result
+            outputLabel.adjustsFontSizeToFitWidth = true
+
+          } else {
+            result = String(factorialResult)
+            leftValue = result
+            outputLabel.text = result
+            outputLabel.adjustsFontSizeToFitWidth = true
+          }
+        }
+
+      } else {
+        result = ""
+        outputLabel.text = "Error"
+      }
+    }
   }
 }
+
 

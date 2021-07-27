@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEQ-tv-U99">
-                                <rect key="frame" x="155" y="402" width="80" height="40"/>
+                                <rect key="frame" x="167" y="348" width="80" height="40"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="A8F-nh-UuI"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="陳欣沛 / Hsin-Pei Chen / Rachel " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Dm-LJ-St0">
-                                <rect key="frame" x="79" y="366.66666666666669" width="232" height="19.333333333333314"/>
+                                <rect key="frame" x="91" y="312.66666666666669" width="232" height="19.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -58,11 +58,11 @@
             <objects>
                 <viewController modalPresentationStyle="currentContext" id="7NN-xW-fBd" customClass="CalculatorViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tar-e3-ijE">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="hr8-uq-tRI">
-                                <rect key="frame" x="43.666666666666657" y="394" width="303" height="400"/>
+                                <rect key="frame" x="55.666666666666657" y="320" width="303" height="400"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="BVB-hw-03x">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="60"/>
@@ -420,10 +420,11 @@
                                     <constraint firstAttribute="height" constant="400" id="4X0-e2-1ik"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izv-TS-xTI">
-                                <rect key="frame" x="32" y="312.33333333333331" width="326" height="65.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izv-TS-xTI">
+                                <rect key="frame" x="63.333333333333343" y="238.33333333333334" width="287.33333333333326" height="65.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65.670000000000002" id="JAJ-gw-5DZ"/>
+                                    <constraint firstAttribute="width" constant="287.32999999999998" id="Wld-RH-nWB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -433,10 +434,9 @@
                         <viewLayoutGuide key="safeArea" id="cBv-Pd-vHJ"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cBv-Pd-vHJ" firstAttribute="trailing" secondItem="Izv-TS-xTI" secondAttribute="trailing" constant="32" id="1gE-6Z-ARy"/>
+                            <constraint firstItem="Izv-TS-xTI" firstAttribute="centerX" secondItem="Tar-e3-ijE" secondAttribute="centerX" id="3r0-Ms-a5I"/>
                             <constraint firstItem="hr8-uq-tRI" firstAttribute="centerX" secondItem="Tar-e3-ijE" secondAttribute="centerX" id="NAm-Tc-1cR"/>
                             <constraint firstItem="hr8-uq-tRI" firstAttribute="top" secondItem="Izv-TS-xTI" secondAttribute="bottom" constant="16" id="NRw-iL-3XN"/>
-                            <constraint firstItem="Izv-TS-xTI" firstAttribute="leading" secondItem="cBv-Pd-vHJ" secondAttribute="leading" constant="32" id="R3F-JY-vR5"/>
                             <constraint firstItem="cBv-Pd-vHJ" firstAttribute="bottom" secondItem="hr8-uq-tRI" secondAttribute="bottom" constant="16" id="ear-GY-aKZ"/>
                         </constraints>
                     </view>
